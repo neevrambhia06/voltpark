@@ -29,13 +29,13 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-white shadow-md sticky top-0 z-50 h-16 flex items-center">
+        <nav className="bg-white shadow-sm sticky top-0 z-50 h-14 flex items-center">
             <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
+                <div className="flex justify-between items-center h-14">
                     <div className="flex items-center">
                         <Link to="/" className="flex items-center group">
-                            <span className="text-2xl font-extrabold text-primary group-hover:scale-105 transition-transform">VOLT</span>
-                            <span className="text-2xl font-extrabold text-secondary group-hover:scale-105 transition-transform">park</span>
+                            <span className="text-xl font-extrabold text-primary group-hover:scale-105 transition-transform">VOLT</span>
+                            <span className="text-xl font-extrabold text-secondary group-hover:scale-105 transition-transform">park</span>
                         </Link>
                     </div>
 

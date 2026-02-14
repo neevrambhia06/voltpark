@@ -92,67 +92,67 @@ const AdminBookings = () => {
                 </div>
 
                 {/* Table */}
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Booking ID</th>
-                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Location</th>
-                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">User</th>
-                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Time</th>
-                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Status</th>
-                                    <th className="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">Actions</th>
+                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase tracking-wider">Booking ID</th>
+                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase tracking-wider">Location</th>
+                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase tracking-wider">User</th>
+                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase tracking-wider">Time</th>
+                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th className="px-4 py-2 text-right text-[10px] font-bold text-gray-500 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
                                 {loading ? (
-                                    <tr><td colSpan="6" className="px-6 py-10 text-center text-gray-500">Loading bookings...</td></tr>
+                                    <tr><td colSpan="6" className="px-4 py-6 text-center text-xs text-gray-500">Loading bookings...</td></tr>
                                 ) : filteredBookings.length === 0 ? (
-                                    <tr><td colSpan="6" className="px-6 py-10 text-center text-gray-500">No bookings found.</td></tr>
+                                    <tr><td colSpan="6" className="px-4 py-6 text-center text-xs text-gray-500">No bookings found.</td></tr>
                                 ) : (
                                     filteredBookings.map((bk) => (
                                         <tr key={bk.id} className="hover:bg-gray-50 transition-colors group">
-                                            <td className="px-6 py-4 whitespace-nowrap">
-                                                <span className="font-mono text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded border border-gray-200">
+                                            <td className="px-4 py-2 whitespace-nowrap">
+                                                <span className="font-mono text-[10px] text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded border border-gray-200">
                                                     #{bk.id.slice(0, 8)}
                                                 </span>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm font-bold text-gray-900">{bk.locations?.name || 'Unknown Location'}</div>
-                                                <div className="flex items-center text-xs text-gray-500">
-                                                    <MapPin size={12} className="mr-1" />
+                                            <td className="px-4 py-2 whitespace-nowrap">
+                                                <div className="text-xs font-bold text-gray-900">{bk.locations?.name || 'Unknown'}</div>
+                                                <div className="flex items-center text-[10px] text-gray-500">
+                                                    <MapPin size={10} className="mr-1" />
                                                     {bk.locations?.city}
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm font-medium text-gray-900">{bk.users?.name || 'Unknown User'}</div>
-                                                <div className="text-xs text-gray-500">{bk.users?.email}</div>
+                                            <td className="px-4 py-2 whitespace-nowrap">
+                                                <div className="text-xs font-medium text-gray-900">{bk.users?.name || 'Unknown'}</div>
+                                                <div className="text-[10px] text-gray-500">{bk.users?.email}</div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap">
+                                            <td className="px-4 py-2 whitespace-nowrap">
                                                 <div className="flex flex-col">
-                                                    <div className="text-sm font-medium text-gray-900">
+                                                    <div className="text-xs font-medium text-gray-900">
                                                         {new Date(bk.start_time).toLocaleDateString()}
                                                     </div>
-                                                    <div className="text-xs text-gray-500 flex items-center mt-0.5">
+                                                    <div className="text-[10px] text-gray-500 flex items-center mt-0.5">
                                                         {new Date(bk.start_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} -
                                                         {new Date(bk.end_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap">
-                                                <span className={`px-2.5 py-1 inline-flex text-xs leading-4 font-bold rounded-full uppercase tracking-wide border shadow-sm ${bk.status === 'Completed' ? 'bg-green-100 text-green-800 border-green-200' :
-                                                        bk.status === 'Started' ? 'bg-blue-100 text-blue-800 border-blue-200 animate-pulse' :
-                                                            bk.status === 'Cancelled' ? 'bg-red-100 text-red-800 border-red-200' :
-                                                                'bg-amber-100 text-amber-800 border-amber-200'
+                                            <td className="px-4 py-2 whitespace-nowrap">
+                                                <span className={`px-2 py-0.5 inline-flex text-[10px] leading-4 font-bold rounded-full uppercase tracking-wide border shadow-sm ${bk.status === 'Completed' ? 'bg-green-100 text-green-800 border-green-200' :
+                                                    bk.status === 'Started' ? 'bg-blue-100 text-blue-800 border-blue-200 animate-pulse' :
+                                                        bk.status === 'Cancelled' ? 'bg-red-100 text-red-800 border-red-200' :
+                                                            'bg-amber-100 text-amber-800 border-amber-200'
                                                     }`}>
                                                     {bk.status}
                                                 </span>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-xs font-medium">
+                                            <td className="px-4 py-2 whitespace-nowrap text-right text-xs font-medium">
                                                 <button
                                                     onClick={() => setSelectedBarcodeBooking(bk)}
-                                                    className="text-white bg-indigo-600 hover:bg-indigo-700 font-medium text-xs px-3 py-1.5 rounded-lg transition-all shadow-sm hover:shadow-md"
+                                                    className="text-white bg-indigo-600 hover:bg-indigo-700 font-medium text-[10px] px-2.5 py-1 rounded-md transition-all shadow-sm hover:shadow-md"
                                                 >
                                                     View Barcode
                                                 </button>

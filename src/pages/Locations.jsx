@@ -86,35 +86,35 @@ const Locations = ({ type }) => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {locations.map((location) => (
-                        <Link key={location.id} to={`/locations/${location.id}`} className="card flex flex-col h-full group hover:no-underline p-4">
-                            <div className="h-40 bg-gray-200 rounded-lg mb-3 overflow-hidden relative">
+                        <Link key={location.id} to={`/locations/${location.id}`} className="card flex flex-col h-full group hover:no-underline p-3">
+                            <div className="h-32 bg-gray-200 rounded-md mb-2 overflow-hidden relative">
                                 <img
                                     src={location.image_url || 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&q=80'}
                                     alt={location.name}
                                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                                 />
-                                <div className="absolute top-2 right-2 bg-white px-1.5 py-0.5 rounded-full text-[10px] font-bold shadow flex items-center">
-                                    {location.type === 'ev' ? <Zap size={12} className="text-secondary mr-1" /> : <MapPin size={12} className="text-primary mr-1" />}
-                                    <span className="uppercase">{location.type}</span>
+                                <div className="absolute top-1 right-1 bg-white px-1.5 py-0.5 rounded-full text-[10px] font-bold shadow flex items-center">
+                                    {location.type === 'ev' ? <Zap size={10} className="text-secondary mr-1" /> : <MapPin size={10} className="text-primary mr-1" />}
+                                    <span className="uppercase text-[10px]">{location.type}</span>
                                 </div>
                             </div>
                             <div className="flex-grow">
-                                <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">{location.name}</h3>
-                                <p className="text-gray-600 mb-3 text-sm flex items-start">
-                                    <MapPin size={14} className="mr-1 mt-0.5 flex-shrink-0 text-gray-400" />
+                                <h3 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors">{location.name}</h3>
+                                <p className="text-gray-600 mb-2 text-xs flex items-start">
+                                    <MapPin size={12} className="mr-1 mt-0.5 flex-shrink-0 text-gray-400" />
                                     {location.address}, {location.city}
                                 </p>
-                                <div className="flex justify-between items-center text-sm text-gray-700 mb-3">
-                                    <span className="bg-blue-50 px-2 py-0.5 rounded text-blue-700 font-bold text-xs">
+                                <div className="flex justify-between items-center text-xs text-gray-700 mb-2">
+                                    <span className="bg-blue-50 px-1.5 py-0.5 rounded text-blue-700 font-bold text-[10px]">
                                         ₹{location.price_per_hour}/hr
                                     </span>
-                                    <span className={`${location.available_slots > 0 ? 'text-green-600' : 'text-red-500'} font-bold text-xs`}>
+                                    <span className={`${location.available_slots > 0 ? 'text-green-600' : 'text-red-500'} font-bold text-[10px]`}>
                                         {location.available_slots} / {location.total_slots} slots
                                     </span>
                                 </div>
                             </div>
-                            <div className="w-full btn-primary text-center mt-auto py-2 text-sm">
-                                View Details
+                            <div className="w-full btn-primary text-center mt-auto py-1.5 text-xs rounded-md">
+                                View
                             </div>
                         </Link>
                     ))}
