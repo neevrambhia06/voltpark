@@ -113,147 +113,153 @@ const Profile = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-16 px-8 presentation-container">
-            <div className="max-w-4xl mx-auto">
-                <h1 className="text-6xl font-extrabold text-gray-900 mb-12">My Profile</h1>
+        <div className="min-h-screen bg-gray-50 py-8 px-4 presentation-container">
+            <div className="max-w-3xl mx-auto">
+                <h1 className="text-2xl font-extrabold text-gray-900 mb-6">My Profile</h1>
 
-                <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100">
-                    <div className="bg-gradient-to-r from-primary to-secondary h-48"></div>
-                    <div className="px-12 pb-12 relative">
-                        <div className="absolute -top-20 left-12">
-                            <div className="h-40 w-40 rounded-full bg-white p-2 shadow-xl">
-                                <div className="h-full w-full rounded-full bg-primary flex items-center justify-center text-6xl text-white font-bold">
+                <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+                    <div className="bg-gradient-to-r from-primary to-secondary h-24"></div>
+                    <div className="px-6 pb-6 relative">
+                        <div className="absolute -top-10 left-6">
+                            <div className="h-20 w-20 rounded-full bg-white p-1 shadow-md">
+                                <div className="h-full w-full rounded-full bg-primary flex items-center justify-center text-2xl text-white font-bold">
                                     {user.email?.charAt(0).toUpperCase()}
                                 </div>
                             </div>
                         </div>
 
-                        <div className="pt-6 ml-48 pl-8 flex justify-between items-start">
+                        <div className="pt-2 ml-24 pl-4 flex justify-between items-start">
                             <div>
-                                <h2 className="text-5xl font-bold text-gray-900 mb-2">{name}</h2>
-                                <p className="text-2xl text-gray-500">Member since {new Date(user.created_at).getFullYear()}</p>
+                                <h2 className="text-xl font-bold text-gray-900 mb-0.5">{name}</h2>
+                                <p className="text-xs text-gray-500">Member since {new Date(user.created_at).getFullYear()}</p>
                             </div>
-                            <div className="bg-gray-100 px-6 py-3 rounded-2xl">
-                                <p className="text-lg font-bold text-gray-500 uppercase tracking-widest mb-1">Role</p>
-                                <p className="text-3xl font-bold text-primary capitalize">{userRole}</p>
+                            <div className="bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Role</p>
+                                <p className="text-sm font-bold text-primary capitalize leading-none">{userRole}</p>
                             </div>
                         </div>
 
-                        <div className="mt-16 grid gap-10">
+                        <div className="mt-8 grid gap-6">
                             {/* Feedback Messages */}
                             {message && (
-                                <div className="bg-green-50 border-l-8 border-green-500 p-6 rounded-r-xl">
-                                    <p className="text-green-800 text-xl font-bold">{message}</p>
+                                <div className="bg-green-50 border-l-4 border-green-500 p-3 rounded-r-md">
+                                    <p className="text-green-800 text-sm font-bold">{message}</p>
                                 </div>
                             )}
                             {error && (
-                                <div className="bg-red-50 border-l-8 border-red-500 p-6 rounded-r-xl">
-                                    <p className="text-red-800 text-xl font-bold">{error}</p>
+                                <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded-r-md">
+                                    <p className="text-red-800 text-sm font-bold">{error}</p>
                                 </div>
                             )}
 
                             {/* Tabs */}
-                            <div className="flex space-x-4 border-b-2 border-gray-100 mb-4">
+                            <div className="flex space-x-6 border-b border-gray-100 mb-2">
                                 <button
                                     onClick={() => setActiveTab('details')}
-                                    className={`pb-4 px-4 text-2xl font-bold transition-colors ${activeTab === 'details' ? 'text-primary border-b-4 border-primary' : 'text-gray-400 hover:text-gray-600'}`}
+                                    className={`pb-2 px-1 text-sm font-bold transition-colors ${activeTab === 'details' ? 'text-primary border-b-2 border-primary' : 'text-gray-400 hover:text-gray-600'}`}
                                 >
                                     Personal Details
                                 </button>
                                 <button
                                     onClick={() => setActiveTab('email')}
-                                    className={`pb-4 px-4 text-2xl font-bold transition-colors ${activeTab === 'email' ? 'text-primary border-b-4 border-primary' : 'text-gray-400 hover:text-gray-600'}`}
+                                    className={`pb-2 px-1 text-sm font-bold transition-colors ${activeTab === 'email' ? 'text-primary border-b-2 border-primary' : 'text-gray-400 hover:text-gray-600'}`}
                                 >
                                     Update Email
                                 </button>
                                 <button
                                     onClick={() => setActiveTab('password')}
-                                    className={`pb-4 px-4 text-2xl font-bold transition-colors ${activeTab === 'password' ? 'text-primary border-b-4 border-primary' : 'text-gray-400 hover:text-gray-600'}`}
+                                    className={`pb-2 px-1 text-sm font-bold transition-colors ${activeTab === 'password' ? 'text-primary border-b-2 border-primary' : 'text-gray-400 hover:text-gray-600'}`}
                                 >
                                     Change Password
                                 </button>
                             </div>
 
                             {/* Forms */}
-                            <div className="bg-gray-50 rounded-3xl p-10">
+                            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                                 {activeTab === 'details' && (
-                                    <form onSubmit={handleUpdateName} className="space-y-8">
-                                        <h3 className="text-3xl font-bold text-gray-900 border-b pb-4">Personal Information</h3>
+                                    <form onSubmit={handleUpdateName} className="space-y-4">
+                                        <h3 className="text-base font-bold text-gray-900 border-b pb-2 mb-4">Personal Information</h3>
                                         <div>
-                                            <label>Full Name</label>
+                                            <label className="block text-xs font-bold text-gray-500 mb-1 ml-1">Full Name</label>
                                             <input
                                                 type="text"
                                                 required
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
-                                                className="w-full"
+                                                className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
                                             />
                                         </div>
-                                        <button disabled={loading} className="btn-primary w-full py-5">
-                                            {loading ? 'Saving...' : 'Save Changes'}
-                                        </button>
+                                        <div className="pt-2">
+                                            <button disabled={loading} className="btn-primary w-full py-2 text-sm">
+                                                {loading ? 'Saving...' : 'Save Changes'}
+                                            </button>
+                                        </div>
                                     </form>
                                 )}
 
                                 {activeTab === 'email' && (
-                                    <form onSubmit={handleUpdateEmail} className="space-y-8">
-                                        <h3 className="text-3xl font-bold text-gray-900 border-b pb-4">Update Email Address</h3>
+                                    <form onSubmit={handleUpdateEmail} className="space-y-4">
+                                        <h3 className="text-base font-bold text-gray-900 border-b pb-2 mb-4">Update Email Address</h3>
                                         <div>
-                                            <label>New Email Address</label>
+                                            <label className="block text-xs font-bold text-gray-500 mb-1 ml-1">New Email Address</label>
                                             <input
                                                 type="email"
                                                 required
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full"
+                                                className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
                                                 placeholder="Enter new email"
                                             />
                                         </div>
                                         <div>
-                                            <label>Confirm New Email</label>
+                                            <label className="block text-xs font-bold text-gray-500 mb-1 ml-1">Confirm New Email</label>
                                             <input
                                                 type="email"
                                                 required
                                                 value={confirmEmail}
                                                 onChange={(e) => setConfirmEmail(e.target.value)}
-                                                className="w-full"
+                                                className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
                                                 placeholder="Confirm new email"
                                             />
                                         </div>
-                                        <button disabled={loading} className="btn-secondary w-full py-5">
-                                            {loading ? 'Updating...' : 'Update Email'}
-                                        </button>
+                                        <div className="pt-2">
+                                            <button disabled={loading} className="btn-secondary w-full py-2 text-sm">
+                                                {loading ? 'Updating...' : 'Update Email'}
+                                            </button>
+                                        </div>
                                     </form>
                                 )}
 
                                 {activeTab === 'password' && (
-                                    <form onSubmit={handleUpdatePassword} className="space-y-8">
-                                        <h3 className="text-3xl font-bold text-gray-900 border-b pb-4">Change Password</h3>
+                                    <form onSubmit={handleUpdatePassword} className="space-y-4">
+                                        <h3 className="text-base font-bold text-gray-900 border-b pb-2 mb-4">Change Password</h3>
                                         <div>
-                                            <label>New Password</label>
+                                            <label className="block text-xs font-bold text-gray-500 mb-1 ml-1">New Password</label>
                                             <input
                                                 type="password"
                                                 required
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
-                                                className="w-full"
+                                                className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
                                                 placeholder="••••••••"
                                             />
                                         </div>
                                         <div>
-                                            <label>Confirm New Password</label>
+                                            <label className="block text-xs font-bold text-gray-500 mb-1 ml-1">Confirm New Password</label>
                                             <input
                                                 type="password"
                                                 required
                                                 value={confirmPassword}
                                                 onChange={(e) => setConfirmPassword(e.target.value)}
-                                                className="w-full"
+                                                className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
                                                 placeholder="••••••••"
                                             />
                                         </div>
-                                        <button disabled={loading} className="btn-primary w-full py-5 bg-gray-900 hover:bg-black">
-                                            {loading ? 'Updating...' : 'Set New Password'}
-                                        </button>
+                                        <div className="pt-2">
+                                            <button disabled={loading} className="btn-primary w-full py-2 text-sm bg-gray-900 hover:bg-black">
+                                                {loading ? 'Updating...' : 'Set New Password'}
+                                            </button>
+                                        </div>
                                     </form>
                                 )}
                             </div>
