@@ -99,64 +99,64 @@ const AdminProperties = () => {
                 </div>
 
                 {/* Table */}
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <div className="overflow-x-auto">
-                        <table className="min-w-full divide-y divide-gray-100">
+                        <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="px-8 py-6 text-left text-sm font-extrabold text-gray-500 uppercase tracking-widest">Property</th>
-                                    <th className="px-8 py-6 text-left text-sm font-extrabold text-gray-500 uppercase tracking-widest">Owner</th>
-                                    <th className="px-8 py-6 text-left text-sm font-extrabold text-gray-500 uppercase tracking-widest">Location</th>
-                                    <th className="px-8 py-6 text-left text-sm font-extrabold text-gray-500 uppercase tracking-widest">Stats</th>
-                                    <th className="px-8 py-6 text-right text-sm font-extrabold text-gray-500 uppercase tracking-widest">Actions</th>
+                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Property</th>
+                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Owner</th>
+                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Location</th>
+                                    <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">Stats</th>
+                                    <th className="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody className="bg-white divide-y divide-gray-100">
+                            <tbody className="bg-white divide-y divide-gray-200">
                                 {loading ? (
-                                    <tr><td colSpan="5" className="px-6 py-20 text-center text-xl text-gray-400 font-medium">Loading properties...</td></tr>
+                                    <tr><td colSpan="5" className="px-6 py-10 text-center text-gray-500">Loading properties...</td></tr>
                                 ) : filteredLocations.length === 0 ? (
-                                    <tr><td colSpan="5" className="px-6 py-20 text-center text-xl text-gray-400 font-medium">No properties found matching your filters.</td></tr>
+                                    <tr><td colSpan="5" className="px-6 py-10 text-center text-gray-500">No properties found matching your filters.</td></tr>
                                 ) : (
                                     filteredLocations.map((loc) => (
-                                        <tr key={loc.id} className="hover:bg-blue-50/50 transition-all duration-200 group">
-                                            <td className="px-8 py-6 whitespace-nowrap">
+                                        <tr key={loc.id} className="hover:bg-gray-50 transition-colors group">
+                                            <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
-                                                    <div className={`p-4 rounded-2xl mr-5 shadow-sm transition-transform group-hover:scale-110 ${loc.type === 'ev' ? 'bg-teal-100 text-teal-700' : 'bg-blue-100 text-blue-700'}`}>
-                                                        <MapPin size={28} strokeWidth={2} />
+                                                    <div className={`p-2.5 rounded-xl mr-3 shadow-sm ${loc.type === 'ev' ? 'bg-teal-100 text-teal-700' : 'bg-blue-100 text-blue-700'}`}>
+                                                        <MapPin size={18} strokeWidth={2} />
                                                     </div>
                                                     <div>
-                                                        <div className="text-xl font-bold text-gray-900 mb-1">{loc.name}</div>
-                                                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${loc.type === 'ev' ? 'bg-teal-50 text-teal-700 border border-teal-100' : 'bg-blue-50 text-blue-700 border border-blue-100'}`}>
+                                                        <div className="text-sm font-bold text-gray-900">{loc.name}</div>
+                                                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${loc.type === 'ev' ? 'bg-teal-50 text-teal-700 border border-teal-100' : 'bg-blue-50 text-blue-700 border border-blue-100'}`}>
                                                             {loc.type === 'ev' ? 'EV Station' : 'Parking Lot'}
                                                         </span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-8 py-6 whitespace-nowrap">
-                                                <div className="text-lg font-bold text-gray-900">{loc.users?.name || 'Unknown'}</div>
-                                                <div className="text-sm text-gray-500 font-medium">{loc.users?.email}</div>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="text-sm font-bold text-gray-900">{loc.users?.name || 'Unknown'}</div>
+                                                <div className="text-xs text-gray-500">{loc.users?.email}</div>
                                             </td>
-                                            <td className="px-8 py-6 whitespace-nowrap">
-                                                <div className="text-lg text-gray-700 font-medium mb-1">{loc.city}</div>
-                                                <div className="text-sm text-gray-400 truncate max-w-[200px]">{loc.address}</div>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="text-sm text-gray-700 font-medium">{loc.city}</div>
+                                                <div className="text-xs text-gray-400 truncate max-w-[150px]">{loc.address}</div>
                                             </td>
-                                            <td className="px-8 py-6 whitespace-nowrap">
-                                                <div className="flex flex-col gap-1">
-                                                    <div className="text-lg font-extrabold text-gray-900">
-                                                        {loc.available_slots} <span className="text-gray-400 text-sm font-normal">/ {loc.total_slots} Slots</span>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="flex flex-col gap-0.5">
+                                                    <div className="text-sm font-bold text-gray-900">
+                                                        {loc.available_slots} <span className="text-gray-400 font-normal">/ {loc.total_slots} Slots</span>
                                                     </div>
-                                                    <div className="text-base font-bold text-green-600 bg-green-50 px-3 py-1 rounded-lg w-fit border border-green-100">
-                                                        ${loc.price_per_hour}<span className="text-xs text-green-700 font-normal">/hr</span>
+                                                    <div className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded w-fit border border-green-100">
+                                                        ${loc.price_per_hour}/hr
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-8 py-6 whitespace-nowrap text-right">
+                                            <td className="px-6 py-4 whitespace-nowrap text-right">
                                                 <button
                                                     onClick={() => handleDeleteLocation(loc.id)}
-                                                    className="text-red-500 hover:text-white hover:bg-red-500 p-3 rounded-xl transition-all shadow-sm hover:shadow-md active:scale-95 border border-transparent hover:border-red-600"
+                                                    className="text-red-500 hover:text-white hover:bg-red-500 p-2 rounded-lg transition-all shadow-sm hover:shadow-md border border-transparent hover:border-red-600"
                                                     title="Delete Property"
                                                 >
-                                                    <Trash2 size={22} />
+                                                    <Trash2 size={18} />
                                                 </button>
                                             </td>
                                         </tr>
