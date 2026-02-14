@@ -7,7 +7,7 @@ import { MapPin, Zap, Clock, Calendar, CreditCard } from 'lucide-react';
 import { format, addHours } from 'date-fns';
 import { SEED_LOCATIONS } from '../lib/seedData';
 import DateTimeWheel from '../components/DateTimeWheel';
-import SlotGrid from '../components/SlotGrid';
+import CarSlotLayout from '../components/CarSlotLayout';
 
 
 const LocationDetails = () => {
@@ -65,18 +65,31 @@ const LocationDetails = () => {
 
     const fetchOccupiedSlots = async () => {
         try {
-            // Fetch bookings that are Scheduled or Started
+            // Use RPC to fetch occupied slots without RLS restrictions
             const { data, error } = await supabase
-                .from('bookings')
-                .select('selected_slot')
-                .eq('location_id', id)
-                .in('status', ['Scheduled', 'Started']);
+                .rpc('get_occupied_slots', { p_location_id: id });
 
-            if (error) throw error;
+            if (error) {
+                // Fallback if RPC doesn't exist yet (for dev)
+                console.warn("RPC get_occupied_slots failed, trying direct select (Subject to RLS):", error);
+                const { data: fallbackData, error: fallbackError } = await supabase
+                    .from('bookings')
+                    .select('selected_slot')
+                    .eq('location_id', id)
+                    .in('status', ['Scheduled', 'Started', 'active', 'confirmed']);
+
+                if (fallbackError) throw fallbackError;
+                if (fallbackData) {
+                    setOccupiedSlots(fallbackData.map(b => b.selected_slot).filter(Boolean));
+                }
+                return;
+            }
 
             if (data) {
                 const slots = data.map(b => b.selected_slot).filter(Boolean);
-                setOccupiedSlots(slots);
+                // remove duplicates just in case
+                const uniqueSlots = [...new Set(slots)];
+                setOccupiedSlots(uniqueSlots);
             }
         } catch (e) {
             console.error("Error fetching occupied slots:", e);
@@ -268,7 +281,7 @@ const LocationDetails = () => {
                         </div>
 
                         <div className="mt-6">
-                            <SlotGrid
+                            <CarSlotLayout
                                 totalSlots={location.total_slots}
                                 availableSlots={location.available_slots}
                                 type={location.type}

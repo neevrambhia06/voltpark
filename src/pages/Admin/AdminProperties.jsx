@@ -1,14 +1,16 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { MapPin, Trash2, ArrowLeft, Search, Filter } from 'lucide-react';
+import { MapPin, Trash2, ArrowLeft, Search, Filter, LayoutGrid } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SlotLayoutModal from '../../components/SlotLayoutModal';
 
 const AdminProperties = () => {
     const [locations, setLocations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterType, setFilterType] = useState('all'); // all, parking, ev
+    const [selectedLayoutId, setSelectedLayoutId] = useState(null);
 
     useEffect(() => {
         fetchLocations();
@@ -151,13 +153,22 @@ const AdminProperties = () => {
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right">
-                                                <button
-                                                    onClick={() => handleDeleteLocation(loc.id)}
-                                                    className="text-red-500 hover:text-white hover:bg-red-500 p-2 rounded-lg transition-all shadow-sm hover:shadow-md border border-transparent hover:border-red-600"
-                                                    title="Delete Property"
-                                                >
-                                                    <Trash2 size={18} />
-                                                </button>
+                                                <div className="flex justify-end gap-2">
+                                                    <button
+                                                        onClick={() => setSelectedLayoutId(loc.id)}
+                                                        className="text-blue-600 hover:text-white hover:bg-blue-600 p-2 rounded-lg transition-all shadow-sm hover:shadow-md border border-blue-200 hover:border-blue-600"
+                                                        title="View Layout"
+                                                    >
+                                                        <LayoutGrid size={18} />
+                                                    </button>
+                                                    <button
+                                                        onClick={() => handleDeleteLocation(loc.id)}
+                                                        className="text-red-500 hover:text-white hover:bg-red-500 p-2 rounded-lg transition-all shadow-sm hover:shadow-md border border-transparent hover:border-red-600"
+                                                        title="Delete Property"
+                                                    >
+                                                        <Trash2 size={18} />
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     ))
@@ -167,6 +178,13 @@ const AdminProperties = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Slot Layout Modal */}
+            <SlotLayoutModal
+                locationId={selectedLayoutId}
+                isOpen={!!selectedLayoutId}
+                onClose={() => setSelectedLayoutId(null)}
+            />
         </div>
     );
 };

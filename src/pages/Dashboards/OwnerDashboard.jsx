@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { supabase } from '../../lib/supabase';
-import { Building2, MapPin, Calendar, Plus, DollarSign, Users, Clock } from 'lucide-react';
+import { Building2, MapPin, Calendar, Plus, DollarSign, Users, Clock, LayoutGrid } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import SlotLayoutModal from '../../components/SlotLayoutModal';
 
 const OwnerDashboard = () => {
     const { user, userRole, loading: authLoading } = useAuth();
@@ -11,6 +12,7 @@ const OwnerDashboard = () => {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('overview'); // 'overview', 'locations', 'bookings'
+    const [selectedLayoutId, setSelectedLayoutId] = useState(null);
 
     useEffect(() => {
         if (user) {
@@ -203,11 +205,21 @@ const OwnerDashboard = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="flex flex-col items-end">
+                                                <div className="flex flex-col items-end gap-2">
                                                     <div className="text-sm text-gray-900 font-bold">${loc.price_per_hour}/hr</div>
                                                     <div className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${loc.available_slots > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                                                         {loc.available_slots} Slots Left
                                                     </div>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setSelectedLayoutId(loc.id);
+                                                        }}
+                                                        className="flex items-center text-xs text-blue-600 hover:text-blue-800 font-medium bg-blue-50 px-2 py-1 rounded border border-blue-100 transition-colors"
+                                                    >
+                                                        <LayoutGrid size={14} className="mr-1" />
+                                                        View Layout
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -221,6 +233,13 @@ const OwnerDashboard = () => {
                         </ul>
                     </div>
                 )}
+
+                {/* Slot Layout Modal */}
+                <SlotLayoutModal
+                    locationId={selectedLayoutId}
+                    isOpen={!!selectedLayoutId}
+                    onClose={() => setSelectedLayoutId(null)}
+                />
 
                 {(activeTab === 'bookings' || activeTab === 'overview') && (
                     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
