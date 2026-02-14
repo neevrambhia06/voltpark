@@ -218,7 +218,6 @@ const LocationDetails = () => {
     if (!location) return <div className="text-center py-20">Location not found</div>;
 
     return (
-    return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="grid md:grid-cols-3 gap-6">
                 {/* Left: Images and Info */}
