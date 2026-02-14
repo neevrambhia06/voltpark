@@ -258,99 +258,99 @@ const AdminPortal = () => {
     if (loading) return <div className="p-20 text-center text-2xl">Loading Admin System...</div>;
 
     return (
-        <div className="min-h-screen bg-gray-100 pb-20">
+        <div className="min-h-screen bg-gray-100 pb-10">
             {/* Admin Header */}
-            <div className="bg-slate-900 text-white py-16 px-8">
-                <div className="max-w-screen-2xl mx-auto">
-                    <div className="flex justify-between items-center mb-12">
+            <div className="bg-slate-900 text-white py-8 px-4">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex justify-between items-center mb-6">
                         <div>
-                            <h1 className="text-5xl font-extrabold mb-2 text-white">Admin Portal</h1>
-                            <p className="text-xl text-gray-400">Owner Management Hub</p>
+                            <h1 className="text-2xl font-extrabold mb-1 text-white">Admin Portal</h1>
+                            <p className="text-xs text-gray-400">Owner Management Hub</p>
                         </div>
                     </div>
 
                     {/* Stat Cards - Interactive */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                         {/* Owners Card */}
                         <div
                             onClick={() => document.getElementById('latest-bookings')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-white p-10 rounded-[2.5rem] shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] transition-all cursor-pointer group"
+                            className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer group"
                         >
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="p-4 bg-blue-50 rounded-2xl text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                    <Users size={32} />
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="p-2 bg-blue-50 rounded-lg text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <Users size={18} />
                                 </div>
-                                <span className="px-4 py-2 bg-gray-50 rounded-full text-sm font-bold text-gray-500 uppercase tracking-wide">Users</span>
+                                <span className="px-2 py-0.5 bg-gray-50 rounded-full text-[10px] font-bold text-gray-500 uppercase tracking-wide">Users</span>
                             </div>
-                            <h3 className="text-6xl font-extrabold text-slate-900 mb-2">{stats.totalOwners}</h3>
-                            <p className="text-gray-500 font-bold text-lg">Total Users/Owners</p>
+                            <h3 className="text-2xl font-extrabold text-slate-900 mb-0.5">{stats.totalOwners}</h3>
+                            <p className="text-gray-500 font-bold text-xs">Total Users/Owners</p>
                         </div>
 
                         {/* Properties Card */}
                         <div
                             onClick={() => window.location.href = '#properties-section'} // Simple anchor or ref needed
-                            className="bg-white p-10 rounded-[2.5rem] shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] transition-all cursor-pointer group"
+                            className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer group"
                         >
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="p-4 bg-teal-50 rounded-2xl text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                                    <MapPin size={32} />
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="p-2 bg-teal-50 rounded-lg text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                                    <MapPin size={18} />
                                 </div>
-                                <span className="px-4 py-2 bg-gray-50 rounded-full text-sm font-bold text-gray-500 uppercase tracking-wide">Locations</span>
+                                <span className="px-2 py-0.5 bg-gray-50 rounded-full text-[10px] font-bold text-gray-500 uppercase tracking-wide">Locations</span>
                             </div>
-                            <h3 className="text-6xl font-extrabold text-slate-900 mb-2">{stats.totalLocations}</h3>
-                            <p className="text-gray-500 font-bold text-lg">Total Properties</p>
+                            <h3 className="text-2xl font-extrabold text-slate-900 mb-0.5">{stats.totalLocations}</h3>
+                            <p className="text-gray-500 font-bold text-xs">Total Properties</p>
                         </div>
 
                         {/* Bookings Card */}
                         <div
                             onClick={() => document.getElementById('latest-bookings')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-white p-10 rounded-[2.5rem] shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] transition-all cursor-pointer group"
+                            className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer group"
                         >
-                            <div className="flex items-center justify-between mb-6">
-                                <div className="p-4 bg-purple-50 rounded-2xl text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                                    <Calendar size={32} />
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="p-2 bg-purple-50 rounded-lg text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                                    <Calendar size={18} />
                                 </div>
-                                <span className="px-4 py-2 bg-gray-50 rounded-full text-sm font-bold text-gray-500 uppercase tracking-wide">Activity</span>
+                                <span className="px-2 py-0.5 bg-gray-50 rounded-full text-[10px] font-bold text-gray-500 uppercase tracking-wide">Activity</span>
                             </div>
-                            <h3 className="text-6xl font-extrabold text-slate-900 mb-2">{stats.totalBookings}</h3>
-                            <p className="text-gray-500 font-bold text-lg">Total Bookings</p>
+                            <h3 className="text-2xl font-extrabold text-slate-900 mb-0.5">{stats.totalBookings}</h3>
+                            <p className="text-gray-500 font-bold text-xs">Total Bookings</p>
                         </div>
                     </div>
 
                     {/* Summaries Section */}
                     {errorMsg && (
-                        <div className="bg-red-50 text-red-600 p-4 rounded-xl mb-8 border border-red-200">
+                        <div className="bg-red-50 text-red-600 p-2 rounded-lg mb-4 border border-red-200 text-xs">
                             <strong>Debug Error:</strong> {errorMsg}
                         </div>
                     )}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20" id="latest-bookings">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4" id="latest-bookings">
                         {/* Latest Bookings */}
-                        <div className="bg-white rounded-[2.5rem] shadow-lg border border-gray-100 p-8">
-                            <div className="flex justify-between items-center mb-8">
-                                <h3 className="text-2xl font-bold text-gray-900">Latest Bookings</h3>
-                                <button onClick={() => navigate('/admin/bookings')} className="text-sm font-bold text-blue-600 hover:underline">View All</button>
+                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+                            <div className="flex justify-between items-center mb-4">
+                                <h3 className="text-sm font-bold text-gray-900">Latest Bookings</h3>
+                                <button onClick={() => navigate('/admin/bookings')} className="text-xs font-bold text-blue-600 hover:underline">View All</button>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="w-full">
                                     <thead>
-                                        <tr className="text-left text-xs font-bold text-gray-400 uppercase tracking-wider">
-                                            <th className="pb-4">Booking</th>
-                                            <th className="pb-4">User</th>
-                                            <th className="pb-4">Status</th>
+                                        <tr className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                            <th className="pb-2">Booking</th>
+                                            <th className="pb-2">User</th>
+                                            <th className="pb-2">Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="space-y-4">
+                                    <tbody className="space-y-2">
                                         {recentBookings.slice(0, 5).map(booking => (
-                                            <tr key={booking.id} className="border-t border-gray-50">
-                                                <td className="py-4">
+                                            <tr key={booking.id} className="border-t border-gray-50 text-[10px]">
+                                                <td className="py-2">
                                                     <div className="font-bold text-gray-900">{booking.locations?.name || 'Unknown'}</div>
-                                                    <div className="text-xs text-gray-500">#{booking.id.slice(0, 6)} • {new Date(booking.created_at).toLocaleTimeString()}</div>
+                                                    <div className="text-[9px] text-gray-500">#{booking.id.slice(0, 6)} • {new Date(booking.created_at).toLocaleTimeString()}</div>
                                                 </td>
-                                                <td className="py-4">
-                                                    <div className="text-sm font-medium text-gray-800">{booking.users?.name || 'User'}</div>
+                                                <td className="py-2">
+                                                    <div className="text-[10px] font-medium text-gray-800">{booking.users?.name || 'User'}</div>
                                                 </td>
-                                                <td className="py-4">
-                                                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${booking.status === 'Completed' ? 'bg-green-100 text-green-700' :
+                                                <td className="py-2">
+                                                    <span className={`px-2 py-0.5 text-[9px] font-bold rounded-full ${booking.status === 'Completed' ? 'bg-green-100 text-green-700' :
                                                         booking.status === 'Started' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'
                                                         }`}>
                                                         {booking.status}
@@ -359,7 +359,7 @@ const AdminPortal = () => {
                                             </tr>
                                         ))}
                                         {recentBookings.length === 0 && (
-                                            <tr><td colSpan="3" className="py-4 text-center text-gray-400">No recent bookings</td></tr>
+                                            <tr><td colSpan="3" className="py-2 text-center text-gray-400 text-xs">No recent bookings</td></tr>
                                         )}
                                     </tbody>
                                 </table>
@@ -367,37 +367,37 @@ const AdminPortal = () => {
                         </div>
 
                         {/* Latest Properties */}
-                        <div className="bg-white rounded-[2.5rem] shadow-lg border border-gray-100 p-8" id="properties-section">
-                            <div className="flex justify-between items-center mb-8">
-                                <h3 className="text-2xl font-bold text-gray-900">Newest Properties</h3>
-                                <button onClick={() => navigate('/admin/properties')} className="text-sm font-bold text-blue-600 hover:underline">View All</button>
+                        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4" id="properties-section">
+                            <div className="flex justify-between items-center mb-4">
+                                <h3 className="text-sm font-bold text-gray-900">Newest Properties</h3>
+                                <button onClick={() => navigate('/admin/properties')} className="text-xs font-bold text-blue-600 hover:underline">View All</button>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="w-full">
                                     <thead>
-                                        <tr className="text-left text-xs font-bold text-gray-400 uppercase tracking-wider">
-                                            <th className="pb-4">Property</th>
-                                            <th className="pb-4">City</th>
-                                            <th className="pb-4">Slots</th>
+                                        <tr className="text-left text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                                            <th className="pb-2">Property</th>
+                                            <th className="pb-2">City</th>
+                                            <th className="pb-2">Slots</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="space-y-4">
+                                    <tbody className="space-y-2">
                                         {locations.slice(0, 5).map(loc => (
-                                            <tr key={loc.id} className="border-t border-gray-50">
-                                                <td className="py-4">
-                                                    <div className="font-bold text-gray-900">{loc.name}</div>
-                                                    <div className="text-xs text-gray-500 uppercase">{loc.type}</div>
+                                            <tr key={loc.id} className="border-t border-gray-50 text-xs">
+                                                <td className="py-2">
+                                                    <div className="font-bold text-gray-900 text-[10px]">{loc.name}</div>
+                                                    <div className="text-[9px] text-gray-500 uppercase">{loc.type}</div>
                                                 </td>
-                                                <td className="py-4">
-                                                    <div className="text-sm text-gray-600">{loc.city}</div>
+                                                <td className="py-2">
+                                                    <div className="text-[10px] text-gray-600">{loc.city}</div>
                                                 </td>
-                                                <td className="py-4">
-                                                    <span className="font-bold text-gray-900">{loc.available_slots}/{loc.total_slots}</span>
+                                                <td className="py-2">
+                                                    <span className="font-bold text-gray-900 text-[10px]">{loc.available_slots}/{loc.total_slots}</span>
                                                 </td>
                                             </tr>
                                         ))}
                                         {locations.length === 0 && (
-                                            <tr><td colSpan="3" className="py-4 text-center text-gray-400">No properties</td></tr>
+                                            <tr><td colSpan="3" className="py-2 text-center text-gray-400 text-xs">No properties</td></tr>
                                         )}
                                     </tbody>
                                 </table>
@@ -408,54 +408,54 @@ const AdminPortal = () => {
                 </div>
             </div>
 
-            <div className="max-w-screen-2xl mx-auto px-8 py-12 space-y-12">
+            <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
 
                 {/* Pending Approval Section */}
                 {pendingRequests.length > 0 && (
                     <section className="animate-in slide-in-from-top-4 duration-500">
-                        <div className="flex items-center gap-4 mb-6">
-                            <h2 className="text-3xl font-bold text-gray-900">Approvals Needed</h2>
-                            <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+                        <div className="flex items-center gap-2 mb-3">
+                            <h2 className="text-lg font-bold text-gray-900">Approvals Needed</h2>
+                            <span className="bg-orange-500 text-white px-2 py-0.5 rounded-full text-[10px] font-bold animate-pulse">
                                 {pendingRequests.length} New
                             </span>
                         </div>
-                        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-orange-100">
+                        <div className="bg-white rounded-xl shadow-sm overflow-hidden border-2 border-orange-100">
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-orange-50">
                                     <tr>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-600 uppercase">Candidate</th>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-600 uppercase">Requested</th>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-600 uppercase">Actions</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-600 uppercase">Candidate</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-600 uppercase">Requested</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-600 uppercase">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-100">
                                     {pendingRequests.map(req => (
                                         <tr key={req.id} className="hover:bg-orange-50/30 transition-colors">
-                                            <td className="px-8 py-6">
+                                            <td className="px-4 py-2">
                                                 <div className="flex items-center">
-                                                    <div className="bg-orange-100 p-2 rounded-lg mr-4 text-orange-600">
-                                                        <ShieldCheck size={24} />
+                                                    <div className="bg-orange-100 p-1.5 rounded-md mr-3 text-orange-600">
+                                                        <ShieldCheck size={16} />
                                                     </div>
                                                     <div>
-                                                        <p className="text-lg font-bold text-gray-900">{req.name || 'Unknown'}</p>
-                                                        <p className="text-gray-500">{req.email}</p>
+                                                        <p className="text-xs font-bold text-gray-900">{req.name || 'Unknown'}</p>
+                                                        <p className="text-[10px] text-gray-500">{req.email}</p>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-8 py-6 font-medium text-gray-600">
+                                            <td className="px-4 py-2 font-medium text-gray-600 text-[10px]">
                                                 {format(new Date(req.created_at), 'PPP')}
                                             </td>
-                                            <td className="px-8 py-6">
-                                                <div className="flex space-x-3">
+                                            <td className="px-4 py-2">
+                                                <div className="flex space-x-2">
                                                     <button
                                                         onClick={() => handleApproveOwner(req.id)}
-                                                        className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-xl font-bold transition-all shadow-lg hover:shadow-green-200 hover:-translate-y-0.5"
+                                                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md font-bold transition-all shadow-sm hover:shadow-green-200 text-[10px]"
                                                     >
                                                         Approve
                                                     </button>
                                                     <button
                                                         onClick={() => handleRejectOwner(req.id)}
-                                                        className="bg-white border-2 border-red-100 text-red-600 hover:bg-red-50 px-6 py-2 rounded-xl font-bold transition-colors"
+                                                        className="bg-white border border-red-100 text-red-600 hover:bg-red-50 px-3 py-1 rounded-md font-bold transition-colors text-[10px]"
                                                     >
                                                         Reject
                                                     </button>
@@ -471,70 +471,70 @@ const AdminPortal = () => {
 
                 {/* Owner Management */}
                 <section>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Owner Management</h2>
-                    <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                    <h2 className="text-lg font-bold text-gray-900 mb-3">Owner Management</h2>
+                    <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200">
                         {owners.length === 0 ? (
-                            <div className="p-10 text-center text-gray-500">No Owner accounts found.</div>
+                            <div className="p-4 text-center text-gray-500 text-xs">No Owner accounts found.</div>
                         ) : (
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-50">
                                     <tr>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-500 uppercase">Owner Identity</th>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-500 uppercase">Stats</th>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-500 uppercase">Joined</th>
-                                        <th className="px-8 py-5 text-left text-sm font-bold text-gray-500 uppercase">Actions</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Owner Identity</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Stats</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Joined</th>
+                                        <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {owners.map(u => (
                                         <tr key={u.id} className="hover:bg-gray-50">
-                                            <td className="px-8 py-6">
-                                                <p className="text-lg font-bold text-gray-900">{u.name || 'No Name'}</p>
-                                                <p className="text-gray-500">{u.email}</p>
+                                            <td className="px-4 py-2">
+                                                <p className="text-xs font-bold text-gray-900">{u.name || 'No Name'}</p>
+                                                <p className="text-[10px] text-gray-500">{u.email}</p>
                                             </td>
-                                            <td className="px-8 py-6">
-                                                <div className="flex space-x-4">
-                                                    <span className="flex items-center bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-bold">
-                                                        <Building2 size={16} className="mr-1" /> {u.propertiesCount} Props
+                                            <td className="px-4 py-2">
+                                                <div className="flex space-x-2">
+                                                    <span className="flex items-center bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                                                        <Building2 size={10} className="mr-1" /> {u.propertiesCount} Props
                                                     </span>
-                                                    <span className="flex items-center bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-bold">
-                                                        <Briefcase size={16} className="mr-1" /> {u.bookingsCount} Bkgs
+                                                    <span className="flex items-center bg-green-50 text-green-700 px-2 py-0.5 rounded-full text-[10px] font-bold">
+                                                        <Briefcase size={10} className="mr-1" /> {u.bookingsCount} Bkgs
                                                     </span>
                                                 </div>
                                             </td>
-                                            <td className="px-8 py-6 text-gray-600">
+                                            <td className="px-4 py-2 text-gray-600 text-[10px]">
                                                 {format(new Date(u.created_at), 'MMM d, yyyy')}
                                             </td>
-                                            <td className="px-8 py-6">
-                                                <div className="flex space-x-3">
+                                            <td className="px-4 py-2">
+                                                <div className="flex space-x-2">
                                                     <button
                                                         onClick={() => handleViewDetails(u, 'properties')}
-                                                        className="text-blue-600 hover:text-blue-800 font-bold bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-lg transition-colors border border-blue-200 text-sm"
+                                                        className="text-blue-600 hover:text-blue-800 font-bold bg-blue-50 hover:bg-blue-100 p-1.5 rounded-md transition-colors border border-blue-200 text-xs"
                                                         title="View Properties"
                                                     >
-                                                        <Building2 size={16} />
+                                                        <Building2 size={12} />
                                                     </button>
                                                     <button
                                                         onClick={() => handleViewDetails(u, 'bookings')}
-                                                        className="text-purple-600 hover:text-purple-800 font-bold bg-purple-50 hover:bg-purple-100 px-4 py-2 rounded-lg transition-colors border border-purple-200 text-sm"
+                                                        className="text-purple-600 hover:text-purple-800 font-bold bg-purple-50 hover:bg-purple-100 p-1.5 rounded-md transition-colors border border-purple-200 text-xs"
                                                         title="View Bookings"
                                                     >
-                                                        <Briefcase size={16} />
+                                                        <Briefcase size={12} />
                                                     </button>
-                                                    <div className="w-px bg-gray-200 mx-2"></div>
+                                                    <div className="w-px bg-gray-200 mx-1"></div>
                                                     <button
                                                         onClick={() => handleDemoteOwner(u.id)}
-                                                        className="text-orange-600 hover:text-orange-800 font-bold bg-orange-50 hover:bg-orange-100 px-4 py-2 rounded-lg transition-colors border border-orange-200 text-sm"
+                                                        className="text-orange-600 hover:text-orange-800 font-bold bg-orange-50 hover:bg-orange-100 p-1.5 rounded-md transition-colors border border-orange-200 text-xs"
                                                         title="Demote to User"
                                                     >
-                                                        <UserMinus size={16} />
+                                                        <UserMinus size={12} />
                                                     </button>
                                                     <button
                                                         onClick={() => handleDeleteOwner(u.id)}
-                                                        className="text-red-600 hover:text-red-800 font-bold bg-red-50 hover:bg-red-100 px-4 py-2 rounded-lg transition-colors border border-red-200 text-sm"
+                                                        className="text-red-600 hover:text-red-800 font-bold bg-red-50 hover:bg-red-100 p-1.5 rounded-md transition-colors border border-red-200 text-xs"
                                                         title="Delete Owner"
                                                     >
-                                                        <Trash2 size={16} />
+                                                        <Trash2 size={12} />
                                                     </button>
                                                 </div>
                                             </td>
@@ -550,48 +550,48 @@ const AdminPortal = () => {
             {/* Modal */}
             {selectedOwner && (
                 <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
-                    <div className="bg-white/95 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] shadow-2xl max-w-4xl w-full p-10 relative animate-in fade-in zoom-in duration-300 max-h-[80vh] overflow-y-auto">
-                        <button onClick={closeModal} className="absolute top-8 right-8 text-gray-400 hover:text-gray-900 transition-colors">
-                            <X size={32} />
+                    <div className="bg-white/95 backdrop-blur-2xl border border-white/20 rounded-xl shadow-2xl max-w-3xl w-full p-6 relative animate-in fade-in zoom-in duration-300 max-h-[80vh] overflow-y-auto">
+                        <button onClick={closeModal} className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors">
+                            <X size={20} />
                         </button>
 
-                        <h2 className="text-3xl font-extrabold mb-2 text-gray-900">
+                        <h2 className="text-xl font-extrabold mb-1 text-gray-900">
                             {viewType === 'properties' ? `Properties for ${selectedOwner.name}` : `Bookings for ${selectedOwner.name}`}
                         </h2>
-                        <p className="text-gray-500 mb-8">{selectedOwner.email}</p>
+                        <p className="text-gray-500 mb-6 text-xs">{selectedOwner.email}</p>
 
                         {modalLoading ? (
-                            <div className="py-20 text-center text-xl text-gray-400 animate-pulse">Loading data...</div>
+                            <div className="py-10 text-center text-sm text-gray-400 animate-pulse">Loading data...</div>
                         ) : (
-                            <div className="overflow-hidden rounded-2xl border border-gray-100 table-container">
+                            <div className="overflow-hidden rounded-lg border border-gray-100 table-container">
                                 {viewType === 'properties' && (
-                                    modalData.length === 0 ? <p className="p-8 text-center text-gray-500">No properties found.</p> :
+                                    modalData.length === 0 ? <p className="p-6 text-center text-gray-500 text-xs">No properties found.</p> :
                                         <table className="min-w-full divide-y divide-gray-100">
                                             <thead className="bg-gray-50">
                                                 <tr>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Name</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Type</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">City</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Slots</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Price</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Action</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Name</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Type</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">City</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Slots</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Price</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y divide-gray-100">
                                                 {modalData.map(loc => (
                                                     <tr key={loc.id}>
-                                                        <td className="px-6 py-4 font-bold text-gray-900">{loc.name}</td>
-                                                        <td className="px-6 py-4 uppercase text-xs font-bold tracking-wider">{loc.type}</td>
-                                                        <td className="px-6 py-4 text-gray-600">{loc.city}</td>
-                                                        <td className="px-6 py-4 text-gray-600">{loc.slots} / {loc.total_slots}</td>
-                                                        <td className="px-6 py-4 font-bold text-green-600">${loc.price_per_hour}/hr</td>
-                                                        <td className="px-6 py-4">
+                                                        <td className="px-4 py-2 font-bold text-gray-900 text-xs">{loc.name}</td>
+                                                        <td className="px-4 py-2 uppercase text-[10px] font-bold tracking-wider">{loc.type}</td>
+                                                        <td className="px-4 py-2 text-gray-600 text-xs">{loc.city}</td>
+                                                        <td className="px-4 py-2 text-gray-600 text-xs">{loc.slots} / {loc.total_slots}</td>
+                                                        <td className="px-4 py-2 font-bold text-green-600 text-xs">${loc.price_per_hour}/hr</td>
+                                                        <td className="px-4 py-2">
                                                             <button
                                                                 onClick={() => handleDeleteLocation(loc.id)}
-                                                                className="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 rounded-full transition-colors"
+                                                                className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1.5 rounded-full transition-colors"
                                                                 title="Delete Property"
                                                             >
-                                                                <Trash2 size={18} />
+                                                                <Trash2 size={14} />
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -601,34 +601,34 @@ const AdminPortal = () => {
                                 )}
 
                                 {viewType === 'bookings' && (
-                                    modalData.length === 0 ? <p className="p-8 text-center text-gray-500">No bookings found for this owner's properties.</p> :
+                                    modalData.length === 0 ? <p className="p-6 text-center text-gray-500 text-xs">No bookings found for this owner's properties.</p> :
                                         <table className="min-w-full divide-y divide-gray-100">
                                             <thead className="bg-gray-50">
                                                 <tr>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">ID</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Customer</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Location</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Status</th>
-                                                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-500">Amount</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">ID</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Customer</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Location</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Status</th>
+                                                    <th className="px-4 py-2 text-left text-[10px] font-bold text-gray-500">Amount</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y divide-gray-100">
                                                 {modalData.map(bk => (
                                                     <tr key={bk.id}>
-                                                        <td className="px-6 py-4 font-mono text-xs text-gray-400">#{bk.id.slice(0, 6)}</td>
-                                                        <td className="px-6 py-4 font-bold text-gray-900">
+                                                        <td className="px-4 py-2 font-mono text-[10px] text-gray-400">#{bk.id.slice(0, 6)}</td>
+                                                        <td className="px-4 py-2 font-bold text-gray-900 text-xs">
                                                             {bk.users?.name || 'User'}
-                                                            <div className="text-xs text-gray-400 font-normal">{bk.users?.email}</div>
+                                                            <div className="text-[10px] text-gray-400 font-normal">{bk.users?.email}</div>
                                                         </td>
-                                                        <td className="px-6 py-4">{bk.locations?.name}</td>
-                                                        <td className="px-6 py-4">
-                                                            <span className={`px-2 py-1 rounded text-xs font-bold uppercase ${bk.status === 'Completed' ? 'bg-green-100 text-green-800' :
+                                                        <td className="px-4 py-2 text-xs">{bk.locations?.name}</td>
+                                                        <td className="px-4 py-2">
+                                                            <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${bk.status === 'Completed' ? 'bg-green-100 text-green-800' :
                                                                 bk.status === 'Cancelled' ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'
                                                                 }`}>
                                                                 {bk.status}
                                                             </span>
                                                         </td>
-                                                        <td className="px-6 py-4 font-bold text-gray-900">${bk.amount || 0}</td>
+                                                        <td className="px-4 py-2 font-bold text-gray-900 text-xs">${bk.amount || 0}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>
@@ -637,8 +637,8 @@ const AdminPortal = () => {
                             </div>
                         )}
 
-                        <div className="mt-8 text-right">
-                            <button onClick={closeModal} className="btn-secondary py-3 px-8 text-lg">Close</button>
+                        <div className="mt-6 text-right">
+                            <button onClick={closeModal} className="btn-secondary py-1.5 px-4 text-xs">Close</button>
                         </div>
                     </div>
                 </div>

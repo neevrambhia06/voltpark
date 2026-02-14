@@ -282,93 +282,93 @@ const OwnerPortal = () => {
     if (authLoading || loading) return <div className="p-20 text-center text-4xl font-bold animate-pulse">Loading Portal...</div>;
 
     return (
-        <div className="min-h-screen bg-gray-50 pb-20">
+        <div className="min-h-screen bg-gray-50 pb-10">
             {/* Owner Header */}
-            <div className="bg-primary text-white py-20 px-8 shadow-2xl">
+            <div className="bg-primary text-white py-8 px-4 shadow-lg">
                 <div className="presentation-container flex justify-between items-center">
                     <div>
-                        <h1 className="text-7xl font-extrabold mb-4 tracking-tight">Owner Portal</h1>
-                        <p className="text-3xl opacity-90 font-light">Manage your properties and bookings</p>
+                        <h1 className="text-2xl font-extrabold mb-1 tracking-tight">Owner Portal</h1>
+                        <p className="text-xs opacity-90 font-light">Manage your properties and bookings</p>
                     </div>
-                    <div className="flex space-x-12 text-center bg-white/10 p-8 rounded-3xl backdrop-blur-sm border border-white/10">
+                    <div className="flex space-x-6 text-center bg-white/10 p-3 rounded-xl backdrop-blur-sm border border-white/10">
                         <div>
-                            <p className="text-6xl font-extrabold">{locations.length}</p>
-                            <p className="opacity-80 text-xl uppercase tracking-wider font-bold mt-2">Properties</p>
+                            <p className="text-xl font-extrabold">{locations.length}</p>
+                            <p className="opacity-80 text-[10px] uppercase tracking-wider font-bold mt-0.5">Properties</p>
                         </div>
-                        <div className="w-px bg-white/20 mx-4"></div>
+                        <div className="w-px bg-white/20 mx-2"></div>
                         <div>
-                            <p className="text-6xl font-extrabold">{bookings.length}</p>
-                            <p className="opacity-80 text-xl uppercase tracking-wider font-bold mt-2">Bookings</p>
+                            <p className="text-xl font-extrabold">{bookings.length}</p>
+                            <p className="opacity-80 text-[10px] uppercase tracking-wider font-bold mt-0.5">Bookings</p>
                         </div>
-                        <div className="w-px bg-white/20 mx-4"></div>
+                        <div className="w-px bg-white/20 mx-2"></div>
                         <div>
-                            <p className="text-6xl font-extrabold text-secondary">${totalRevenue}</p>
-                            <p className="opacity-80 text-xl uppercase tracking-wider font-bold mt-2">Earnings</p>
+                            <p className="text-xl font-extrabold text-secondary">${totalRevenue}</p>
+                            <p className="opacity-80 text-[10px] uppercase tracking-wider font-bold mt-0.5">Earnings</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="presentation-container py-16 space-y-20">
+            <div className="presentation-container py-6 space-y-8">
 
                 {/* Section A: My Locations */}
                 <section>
-                    <div className="flex justify-between items-center mb-12">
-                        <h2 className="text-5xl font-extrabold text-gray-900">My Locations</h2>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="text-xl font-extrabold text-gray-900">My Locations</h2>
                         <button
                             onClick={() => setIsAddModalOpen(true)}
-                            className="btn-secondary"
+                            className="btn-secondary text-xs px-3 py-1.5"
                         >
-                            <PlusCircle className="mr-3" size={28} /> Add New Property
+                            <PlusCircle className="mr-1.5" size={14} /> Add New Property
                         </button>
                     </div>
 
                     {locations.length === 0 ? (
-                        <div className="bg-white p-20 rounded-[3rem] text-center shadow-sm border border-dashed border-gray-300">
-                            <Building2 className="mx-auto text-gray-300 mb-6" size={80} />
-                            <p className="text-4xl text-gray-400 font-bold mb-4">You have no properties listed.</p>
-                            <p className="text-2xl text-gray-400">Add your first parking spot to start earning.</p>
+                        <div className="bg-white p-8 rounded-lg text-center shadow-sm border border-dashed border-gray-300">
+                            <Building2 className="mx-auto text-gray-300 mb-3" size={32} />
+                            <p className="text-sm text-gray-400 font-bold mb-1">You have no properties listed.</p>
+                            <p className="text-xs text-gray-400">Add your first parking spot to start earning.</p>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {locations.map(loc => (
-                                <div key={loc.id} className="card group relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div key={loc.id} className="card group relative overflow-hidden p-4">
+                                    <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <button
                                             onClick={(e) => { e.stopPropagation(); openEditModal(loc); }}
-                                            className="bg-white/90 p-3 rounded-full shadow-lg hover:bg-white text-primary"
+                                            className="bg-white/90 p-1.5 rounded-full shadow-lg hover:bg-white text-primary"
                                         >
-                                            <Edit size={24} />
+                                            <Edit size={14} />
                                         </button>
                                     </div>
 
-                                    <div className="flex justify-between items-start mb-6">
-                                        <h3 className="text-3xl font-bold text-gray-900 line-clamp-1">{loc.name}</h3>
-                                        <span className={`px-5 py-2 rounded-full text-lg font-bold uppercase tracking-wide ${loc.type === 'ev' ? 'bg-teal-100 text-teal-800' : 'bg-blue-100 text-blue-800'}`}>
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h3 className="text-sm font-bold text-gray-900 line-clamp-1">{loc.name}</h3>
+                                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${loc.type === 'ev' ? 'bg-teal-100 text-teal-800' : 'bg-blue-100 text-blue-800'}`}>
                                             {loc.type}
                                         </span>
                                     </div>
-                                    <p className="text-2xl text-gray-500 mb-8 flex items-center">
-                                        <MapPin size={24} className="mr-3 text-gray-400" /> {loc.address}, {loc.city}
+                                    <p className="text-xs text-gray-500 mb-3 flex items-center">
+                                        <MapPin size={12} className="mr-1 text-gray-400" /> {loc.address}, {loc.city}
                                     </p>
-                                    <div className="flex justify-between items-center text-xl font-medium border-t border-gray-100 pt-8 mt-auto">
-                                        <span className="text-gray-600 bg-gray-100 px-4 py-2 rounded-xl">Slots: <span className="text-gray-900 font-bold">{loc.available_slots}/{loc.total_slots}</span></span>
-                                        <span className="text-primary font-extrabold text-4xl">${loc.price_per_hour}<span className="text-lg text-gray-400 font-medium">/hr</span></span>
+                                    <div className="flex justify-between items-center text-sm font-medium border-t border-gray-100 pt-3 mt-auto">
+                                        <span className="text-gray-600 bg-gray-100 px-2 py-1 rounded-md text-[10px]">Slots: <span className="text-gray-900 font-bold">{loc.available_slots}/{loc.total_slots}</span></span>
+                                        <span className="text-primary font-extrabold text-lg">${loc.price_per_hour}<span className="text-[10px] text-gray-400 font-medium">/hr</span></span>
                                     </div>
 
-                                    <div className="flex gap-4 mt-8">
+                                    <div className="flex gap-2 mt-3">
                                         <button
                                             onClick={() => openEditModal(loc)}
-                                            className="flex-1 py-4 bg-gray-50 text-gray-600 font-bold rounded-xl hover:bg-gray-100 transition-colors flex items-center justify-center"
+                                            className="flex-1 py-1.5 bg-gray-50 text-gray-600 font-bold rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center text-xs"
                                         >
-                                            <Edit size={20} className="mr-2" /> Edit
+                                            <Edit size={12} className="mr-1" /> Edit
                                         </button>
                                         <button
                                             onClick={() => recalculateSlots(loc.id)}
-                                            className="flex-1 py-4 bg-blue-50 text-blue-600 font-bold rounded-xl hover:bg-blue-100 transition-colors flex items-center justify-center"
+                                            className="flex-1 py-1.5 bg-blue-50 text-blue-600 font-bold rounded-lg hover:bg-blue-100 transition-colors flex items-center justify-center text-xs"
                                             title="Force Sync Slot Count"
                                         >
-                                            <CheckCircle size={20} className="mr-2" /> Sync
+                                            <CheckCircle size={12} className="mr-1" /> Sync
                                         </button>
                                     </div>
                                 </div>
@@ -381,67 +381,67 @@ const OwnerPortal = () => {
                 <div className="relative">
                     {/* Approval Status Banner */}
                     {!isApproved && (
-                        <div className="absolute top-0 left-0 right-0 -mt-6 bg-yellow-400 text-yellow-900 px-6 py-4 rounded-t-3xl font-bold flex items-center justify-center z-20 shadow-sm animate-pulse">
-                            <Shield className="mr-3" size={24} />
-                            <span>Approval Pending – You cannot add properties yet. Please wait for admin verification.</span>
+                        <div className="absolute top-0 left-0 right-0 -mt-3 bg-yellow-400 text-yellow-900 px-3 py-1.5 rounded-t-xl font-bold flex items-center justify-center z-20 shadow-sm animate-pulse text-xs">
+                            <Shield className="mr-1.5" size={14} />
+                            <span>Approval Pending – You cannot add properties yet.</span>
                         </div>
                     )}
 
-                    <div className="absolute inset-0 bg-secondary transform -skew-y-2 origin-top-left translate-y-20 h-64 -z-10 opacity-5"></div>
-                    <div className={`bg-white rounded-[3rem] shadow-xl p-10 border border-gray-100 relative overflow-hidden ${!isApproved ? 'rounded-t-none mt-6' : ''}`}>
+                    <div className="absolute inset-0 bg-secondary transform -skew-y-2 origin-top-left translate-y-10 h-32 -z-10 opacity-5"></div>
+                    <div className={`bg-white rounded-xl shadow-sm p-5 border border-gray-100 relative overflow-hidden ${!isApproved ? 'rounded-t-none mt-3' : ''}`}>
                         {/* Section B: Bookings for My Locations */}
                         <section>
-                            <h2 className="text-5xl font-extrabold text-gray-900 mb-12">Recent Bookings Management</h2>
-                            <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100">
+                            <h2 className="text-xl font-extrabold text-gray-900 mb-4">Recent Bookings Management</h2>
+                            <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100">
                                 {bookings.length === 0 ? (
-                                    <div className="p-20 text-center text-3xl text-gray-400 font-bold">No bookings yet.</div>
+                                    <div className="p-8 text-center text-sm text-gray-400 font-bold">No bookings yet.</div>
                                 ) : (
                                     <div className="overflow-x-auto">
                                         <table className="min-w-full divide-y divide-gray-200">
                                             <thead className="bg-gray-50">
                                                 <tr>
-                                                    <th className="table-header">Booking ID</th>
-                                                    <th className="table-header">Customer</th>
-                                                    <th className="table-header">Location / Date</th>
-                                                    <th className="table-header">Slot</th>
-                                                    <th className="table-header">Status Control</th>
-                                                    <th className="table-header text-right">Actions</th>
+                                                    <th className="table-header text-[10px] px-3 py-2">Booking ID</th>
+                                                    <th className="table-header text-[10px] px-3 py-2">Customer</th>
+                                                    <th className="table-header text-[10px] px-3 py-2">Location / Date</th>
+                                                    <th className="table-header text-[10px] px-3 py-2">Slot</th>
+                                                    <th className="table-header text-[10px] px-3 py-2">Status Control</th>
+                                                    <th className="table-header text-[10px] px-3 py-2 text-right">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="bg-white divide-y divide-gray-200">
                                                 {bookings.map((booking) => (
                                                     <tr key={booking.id} className="hover:bg-gray-50 transition-colors">
-                                                        <td className="table-cell font-mono text-gray-500">
+                                                        <td className="table-cell px-3 py-2 font-mono text-gray-500 text-[10px]">
                                                             #{booking.id.slice(0, 6)}
-                                                            <div className="text-sm mt-1 text-gray-400 font-sans">
+                                                            <div className="text-[10px] mt-0.5 text-gray-400 font-sans">
                                                                 {format(new Date(booking.created_at), 'MMM d, yyyy')}
                                                             </div>
                                                         </td>
-                                                        <td className="table-cell">
-                                                            <div className="font-bold text-gray-900">{booking.users?.full_name || 'User'}</div>
-                                                            <div className="text-gray-500 text-lg">{booking.users?.email}</div>
+                                                        <td className="table-cell px-3 py-2">
+                                                            <div className="font-bold text-gray-900 text-xs">{booking.users?.full_name || 'User'}</div>
+                                                            <div className="text-gray-500 text-[10px]">{booking.users?.email}</div>
                                                         </td>
-                                                        <td className="table-cell">
-                                                            <div className="font-bold text-primary mb-1">{booking.locations?.name}</div>
-                                                            <div className="flex items-center text-gray-600">
-                                                                <Calendar className="mr-2" size={18} />
+                                                        <td className="table-cell px-3 py-2">
+                                                            <div className="font-bold text-primary mb-0.5 text-xs">{booking.locations?.name}</div>
+                                                            <div className="flex items-center text-gray-600 text-[10px]">
+                                                                <Calendar className="mr-1" size={10} />
                                                                 {format(new Date(booking.start_time), 'MMM d, h:mm a')}
                                                             </div>
                                                         </td>
-                                                        <td className="table-cell">
+                                                        <td className="table-cell px-3 py-2">
                                                             {booking.selected_slot ? (
-                                                                <span className="bg-blue-100 text-blue-800 py-1 px-3 rounded-full font-bold text-sm border border-blue-200">
+                                                                <span className="bg-blue-100 text-blue-800 py-0.5 px-1.5 rounded-full font-bold text-[10px] border border-blue-200">
                                                                     {booking.selected_slot}
                                                                 </span>
                                                             ) : (
-                                                                <span className="text-gray-400 font-mono text-sm">--</span>
+                                                                <span className="text-gray-400 font-mono text-[10px]">--</span>
                                                             )}
                                                         </td>
-                                                        <td className="table-cell">
+                                                        <td className="table-cell px-3 py-2">
                                                             <select
                                                                 value={booking.status || 'Scheduled'}
                                                                 onChange={(e) => handleStatusChange(booking.id, e.target.value, booking.location_id)}
-                                                                className={`p-3 pr-8 rounded-xl font-bold border-2 cursor-pointer outline-none focus:ring-4 focus:ring-opacity-50 transition-all ${booking.status === 'Completed' ? 'border-green-200 bg-green-50 text-green-800' :
+                                                                className={`p-1 pr-6 rounded-md font-bold border cursor-pointer outline-none focus:ring-2 focus:ring-opacity-50 transition-all text-[10px] ${booking.status === 'Completed' ? 'border-green-200 bg-green-50 text-green-800' :
                                                                     booking.status === 'Cancelled' ? 'border-red-200 bg-red-50 text-red-800' :
                                                                         booking.status === 'Started' ? 'border-blue-200 bg-blue-50 text-blue-800' :
                                                                             'border-gray-200 bg-white text-gray-700'
@@ -453,12 +453,12 @@ const OwnerPortal = () => {
                                                                 <option value="Cancelled">❌ Cancelled</option>
                                                             </select>
                                                         </td>
-                                                        <td className="table-cell text-right">
+                                                        <td className="table-cell px-3 py-2 text-right">
                                                             <button
                                                                 onClick={() => setSelectedBarcodeBooking(booking)}
-                                                                className="btn-sm bg-gray-900 text-white hover:bg-black inline-flex items-center"
+                                                                className="btn-sm bg-gray-900 text-white hover:bg-black inline-flex items-center text-[10px] px-2 py-1"
                                                             >
-                                                                <QrCode size={20} className="mr-2" /> View Barcode
+                                                                <QrCode size={12} className="mr-1" /> Barcode
                                                             </button>
                                                         </td>
                                                     </tr>
